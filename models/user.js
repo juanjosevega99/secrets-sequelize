@@ -1,25 +1,25 @@
-"use strict";
+'use strict'
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User",
+    'User',
     {
       username: DataTypes.STRING,
       password: DataTypes.STRING,
       fullName: {
-        type: DataTypes.STRING,
-      },
+        type: DataTypes.STRING
+      }
     },
     {
       underscored: true,
-      tableName: "users",
+      tableName: 'users'
     }
-  );
+  )
   User.associate = function (models) {
     User.hasMany(models.Secret, {
-      sourceKey: "username",
-      foreignKey: "username",
-      as: "secrets",
-    });
-  };
-  return User;
-};
+      sourceKey: 'username',
+      foreignKey: 'username',
+      as: 'secrets'
+    })
+  }
+  return User
+}

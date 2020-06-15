@@ -1,23 +1,23 @@
-"use strict";
+'use strict'
 module.exports = (sequelize, DataTypes) => {
   const Secret = sequelize.define(
-    "Secret",
+    'Secret',
     {
       username: DataTypes.STRING,
       name: DataTypes.STRING,
-      value: DataTypes.STRING,
+      value: DataTypes.STRING
     },
     {
       underscored: true,
-      tableName: "secrets",
+      tableName: 'secrets'
     }
-  );
+  )
   Secret.associate = function (models) {
     Secret.belongsTo(models.User, {
-      targetKey: "username",
-      foreignKey: "username",
-      as: "user",
-    });
-  };
-  return Secret;
-};
+      targetKey: 'username',
+      foreignKey: 'username',
+      as: 'user'
+    })
+  }
+  return Secret
+}
