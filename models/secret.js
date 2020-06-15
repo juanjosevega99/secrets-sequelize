@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Secret.associate = function (models) {
-    // associations can be defined here
+    Secret.belongsTo(models.User, {
+      targetKey: "username",
+      foreignKey: "username",
+      as: "user",
+    });
   };
   return Secret;
 };
